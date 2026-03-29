@@ -1,14 +1,11 @@
 #!/usr/bin/python3
-# 1-safe_print_integer.py
-
-def safe_print_integer(value):
-    """
-    function that prints an integer with "{:d}".format().
-    """
-    try:
-        print("{:d}".format(value))
-        return True
-    except TypeError:
-        return False
-    except ValueError:
-        return False
+def safe_print_list(my_list=[], x=0):
+    nb = 0
+    for i in range(x):
+        try:
+            print(my_list[i], end="")
+            nb += 1
+        except IndexError:
+            break
+    print()
+    return nb
