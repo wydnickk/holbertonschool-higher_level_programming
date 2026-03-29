@@ -4,10 +4,16 @@
 
 def matrix_divided(matrix, div):
     """Divide all elements of a matrix by div and round to 2 decimals."""
+    err = "matrix must be a matrix (list of lists) of integers/floats"
+
     if (not isinstance(matrix, list) or matrix == [] or
-            not all(isinstance(row, list) and row != [] for row in matrix) or
-            not all(isinstance(n, (int, float)) for row in matrix for n in row)):
-        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
+            not all(isinstance(row, list) and row != [] for row in matrix)):
+        raise TypeError(err)
+
+    for row in matrix:
+        for n in row:
+            if not isinstance(n, (int, float)):
+                raise TypeError(err)
 
     row_len = len(matrix[0])
     if not all(len(row) == row_len for row in matrix):
