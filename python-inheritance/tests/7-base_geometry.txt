@@ -1,4 +1,4 @@
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> BaseGeometry = __import__('base_geometry_7_2').BaseGeometry
 >>> bg = BaseGeometry()
 
 >>> bg.area()
